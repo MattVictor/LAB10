@@ -13,7 +13,10 @@ public class Circulo implements FiguraMethods {
     }
 
     public static Circulo getInstance(Double raio) {
-        if (circulo == null && validarRaio(raio)) {
+        if(!validarRaio(raio)){
+            throw new InvalidParameterException("Raio deve ser maior que 0");
+        }
+        if (circulo == null) {
             circulo = new Circulo(raio);
         }
         else {
@@ -22,8 +25,9 @@ public class Circulo implements FiguraMethods {
         return circulo;
     }
 
-    public static boolean validarRaio(Double raio) {
-        if (raio <= 0) throw new InvalidParameterException("Raio deve ser maior que 0");
+    private static boolean validarRaio(Double raio) {
+        if (raio <= 0)
+            return false;
         return true;
     }
 

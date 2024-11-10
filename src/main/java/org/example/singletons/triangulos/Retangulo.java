@@ -14,8 +14,10 @@ public class Retangulo extends Triangulo {
     }
 
     public static Retangulo getInstance(Double lado1, Double lado2, Double lado3) {
-        if (retangulo == null && validarRetangulo(lado1, lado2, lado3)) {
-            retangulo = new Retangulo(lado1, lado2, lado3);
+        if (validarRetangulo(lado1, lado2, lado3)) {
+            if (retangulo == null) {
+                retangulo = new Retangulo(lado1, lado2, lado3);
+            }
         }
         return retangulo;
     }

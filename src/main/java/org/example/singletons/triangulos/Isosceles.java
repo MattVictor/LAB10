@@ -14,15 +14,19 @@ public class Isosceles extends Triangulo {
     }
 
     public static Isosceles getInstance(Double lado1, Double lado2, Double lado3) {
-        if (isosceles == null && validarIsosceles(lado1, lado2, lado3)) {
-            isosceles = new Isosceles(lado1, lado2, lado3);
+        if (validarIsosceles(lado1, lado2, lado3)) {
+            if (isosceles == null) {
+                isosceles = new Isosceles(lado1, lado2, lado3);
+            }
         }
         return isosceles;
     }
 
     private static boolean validarIsosceles(double a, double b, double c) {
-        if (!(a == b || a == c || b == c)) throw new InvalidParameterException("Lados inválidos para um triângulo isosceles.");
-        return true;
+        if ((a == b && a != c) || (a == c && a != b) || (b == c && b!= a))
+            return true;
+        else
+            throw new InvalidParameterException("Lados inválidos para um triângulo isosceles.");
     }
 
     @Override

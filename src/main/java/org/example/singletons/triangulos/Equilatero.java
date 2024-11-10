@@ -13,8 +13,10 @@ public class Equilatero extends Triangulo {
     }
 
     public static Equilatero getInstance(Double lado1, Double lado2, Double lado3) {
-        if (equilatero == null && validarEquilatero(lado1, lado2, lado3)) {
-            equilatero = new Equilatero(lado1, lado2, lado3);
+        if(validarEquilatero(lado1, lado2, lado3)) {
+            if (equilatero == null) {
+                equilatero = new Equilatero(lado1, lado2, lado3);
+            }
         }
         return equilatero;
     }

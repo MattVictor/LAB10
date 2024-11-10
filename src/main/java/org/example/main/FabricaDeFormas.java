@@ -7,7 +7,8 @@ import org.example.singletons.Triangulo;
 import javax.management.InstanceAlreadyExistsException;
 
 public class FabricaDeFormas {
-
+    // Decidimos realizar os testes de cada figura individualmente
+    // não é possível testar ambos (Fábrica e as Figuras) por conta das figuras serem estáticas
     public Circulo criarCirculo(Double raio) {
         return Circulo.getInstance(raio);
     }
